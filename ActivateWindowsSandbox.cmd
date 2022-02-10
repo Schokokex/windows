@@ -1,1 +1,1 @@
- powershell -Command "Get-WindowsOptionalFeature -Online -FeatureName Containers-DisposableClientVM | Enable-WindowsOptionalFeature -Online"
+ powershell -Command "Get-WindowsOptionalFeature -Online -FeatureName Containers-DisposableClientVM | Enable-WindowsOptionalFeature -Online" || echo An Error occured. Maybe run again as admin helps && pause
