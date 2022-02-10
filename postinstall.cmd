@@ -15,15 +15,19 @@
 
 :: cat %username%
 
-
-:: powershell -Command "Get-AppxPackage | Where-Object {$_.Name -NotMatch 'DesktopAppInstaller|WindowsStore'}"
-
-:: start "Set Administrator Password" net user Administrator * && net user Administrator /active:yes
-:: start "Set User Password" net user A *
+:: Administrator
+::     powershell -Command "Get-AppxPackage -AllUsers | Where-Object {$_.Name -NotMatch 'DesktopAppInstaller|WindowsStore'} | Remove-AppxPackage"
+::     
+::     start "Set Administrator Password" net user Administrator * && net user Administrator /active:yes
+::     start "Set User Password" net user A *
 ::
-::
-::
-::
+::     powershell -Command "Get-WindowsOptionalFeature -Online | Where-Object {$_.FeatureName -Match 'Microsoft-Windows-Subsystem-Linux|Containers-DisposableClientVM|Printing-PrintToPDFServices-Features'} | Enable-WindowsOptionalFeature -Online"
+::     powershell -Command "Get-WindowsOptionalFeature -Online | Where-Object {$_.FeatureName -NotMatch 'Microsoft-Windows-Subsystem-Linux|Containers-DisposableClientVM|Printing-PrintToPDFServices-Features'} | Disable-WindowsOptionalFeature -Online"
+::     
+::     
+:: User
+::     powershell -Command "Get-AppxPackage | Where-Object {$_.Name -NotMatch 'DesktopAppInstaller|WindowsStore'} | Remove-AppxPackage"
+::     
 ::
 ::
 ::
