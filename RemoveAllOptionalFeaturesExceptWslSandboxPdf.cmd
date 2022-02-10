@@ -1,1 +1,1 @@
- powershell -Command "Get-WindowsOptionalFeature -Online | Where-Object {$_.FeatureName -NotMatch 'Subsystem-Linux|Disposable|pdf' } | Disable-WindowsOptionalFeature -Online" || echo An Error occured. Maybe run again as admin helps && pause
+ powershell -Command "Get-WindowsOptionalFeature -Online | Where-Object {$_.FeatureName -NotMatch 'Subsystem-Linux|Disposable|pdf' } | Disable-WindowsOptionalFeature -NoRestart -Online" || echo An Error occured. Maybe run again as admin helps && pause
