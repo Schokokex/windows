@@ -1,1 +1,2 @@
-powershell -Command "Get-AppxPackage | Where-Object {$_.Name -NotMatch 'DesktopAppInstaller|WindowsStore'} | Remove-AppxPackage"
+echo "make sure to run this as admin" && pause
+powershell -Command "Get-AppxProvisionedPackage | Where-Object {$_.Name -NotMatch 'DesktopAppInstaller|WindowsStore'} | Remove-AppxProvisionedPackage -AllUsers"
